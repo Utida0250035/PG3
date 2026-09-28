@@ -3,9 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Folder Name="/Root/">
-    <File Path=".editorconfig" />
-  </Folder>
   <Project Path="PG3.vcxproj" Id="499975a5-10b2-4dc7-a499-b38fd7325401" />
-  <Project Path="PG3_SubProj0/PG3_SubProj0.vcxproj" Id="a8137334-8168-4a1c-b9ae-95412ddc5cf5" />
 </Solution>
