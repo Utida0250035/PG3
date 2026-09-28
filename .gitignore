@@ -1,4 +1,4 @@
-# Prerequisites
+﻿# Prerequisites
 *.d
 
 # Compiled Object files
@@ -71,4 +71,4 @@ Testing/
 #
 
 .vs/**
-/PG3/x64/Debug
+**/x64/Debug
