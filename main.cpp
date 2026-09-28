@@ -1,9 +1,9 @@
 #include <iostream>
 
 int main() {
+	system("chcp 65001 > nul");
 
-	printf("Hello, world!");
+	printf("こんにちは！");
 
 	return 0;
-
 }
