@@ -4,34 +4,11 @@
 #include <list>
 
 int main() {
-	std::list<const char*> yamanoteLineStations1970{"Tokyo",
-													"Kanda",
-													"Akihabara",
-													"Okachimachi",
-													"Ueno",
-													"Uguisudani",
-													"Nippori",
-													"Tabata",
-													"Komagome",
-													"Sugamo",
-													"Otsuka",
-													"Ikebukuro",
-													"Mejiro",
-													"Takadanobaba",
-													"Shin-Okubo",
-													"Shinjuku",
-													"Yoyogi",
-													"Harajuku",
-													"Shibuya",
-													"Ebisu",
-													"Meguro",
-													"Gotanda",
-													"Osaki",
-													"Shinagawa",
-													"Tamachi",
-													"Hamamatucho",
-													"Shimbashi",
-													"Yurakucho"};
+	std::list<const char*> yamanoteLineStations1970{
+		"Tokyo",	  "Kanda",	  "Akihabara", "Okachimachi", "Ueno",		  "Uguisudani", "Nippori",
+		"Tabata",	  "Komagome", "Sugamo",	   "Otsuka",	  "Ikebukuro",	  "Mejiro",		"Takadanobaba",
+		"Shin-Okubo", "Shinjuku", "Yoyogi",	   "Harajuku",	  "Shibuya",	  "Ebisu",		"Meguro",
+		"Gotanda",	  "Osaki",	  "Shinagawa", "Tamachi",	  "Hamamatsucho", "Shimbashi",	"Yurakucho"};
 
 	std::list<const char*> yamanoteLineStations2019 = yamanoteLineStations1970;
 
@@ -53,21 +30,21 @@ int main() {
 
 	printf("\n<yamanote1970>\n");
 
-	for (auto cell : yamanoteLineStations1970) {
+	for (const char* cell : yamanoteLineStations1970) {
 		printf(cell);
 		printf("\n");
 	}
 
 	printf("\n<yamanote2019>\n");
 
-	for (auto cell : yamanoteLineStations2019) {
+	for (const char* cell : yamanoteLineStations2019) {
 		printf(cell);
 		printf("\n");
 	}
 
 	printf("\n<yamanote2022>\n");
 
-	for (auto cell : yamanoteLineStations2022) {
+	for (const char* cell : yamanoteLineStations2022) {
 		printf(cell);
 		printf("\n");
 	}
