@@ -4,6 +4,9 @@
 #include <list>
 
 int main() {
+
+	system("chcp 65001 > nul");
+
 	std::list<const char*> yamanoteLineStations1970{
 		"Tokyo",	  "Kanda",	  "Akihabara", "Okachimachi", "Ueno",		  "Uguisudani", "Nippori",
 		"Tabata",	  "Komagome", "Sugamo",	   "Otsuka",	  "Ikebukuro",	  "Mejiro",		"Takadanobaba",
@@ -48,4 +51,6 @@ int main() {
 		printf(cell);
 		printf("\n");
 	}
+
+	return 0;
 }
