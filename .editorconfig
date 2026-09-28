@@ -1,0 +1,27 @@
+﻿root = true
+
+[*.{cpp,h,hlsl,hlsli}]
+
+# 文字セットをutf-8に設定
+charset = utf-8
+
+# 辞書を英語(英国)に固定する
+spelling_languages = en-us
+
+# スペルチェック対象を識別子とコメントに限定する
+spelling_checkable_types = identifiers,comments
+
+# スペルミスをエラーとして扱う
+spelling_error_severity = error
+visual_studio_spell_check_severity = error
+dotnet_diagnostic.VSSpell001.severity = error
+
+# 自作除外辞書を使えるように標準の除外辞書設定をそのまま使用
+spelling_use_default_exclusion_dictionary = true
+
+# 除外辞書を指定
+spelling_exclusion_path = ./exclusion.dic
+
+
+[externals/**]
+generated_code = true
