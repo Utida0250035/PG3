@@ -71,3 +71,4 @@ Testing/
 #
 
 .vs/**
+/PG3/x64/Debug
