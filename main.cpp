@@ -1,4 +1,4 @@
-﻿
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,9 +11,9 @@ void Labor(int hour, int recursiveHourlyPay, int recursivePay) {
 	printf("Labor Time: %d(hour)\n\n", hour);
 	printf("Pay: %d(1226 * hour), %d(Recursive)\n\n", pay, recursivePay);
 
-	if (pay > recursiveHourlyPay) {
+	if (pay > recursivePay) {
 		printf("Legally > Recursive\n\n");
-	} else if (pay < recursiveHourlyPay) {
+	} else if (pay < recursivePay) {
 		printf("Legally < Recursive\n\n");
 	} else {
 		printf("Legally == Recursive\n\n");
