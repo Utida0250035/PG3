@@ -1,27 +1,55 @@
-#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
 
-template <typename T>
-T Min(T a, T b) {
+void Labor(int hour, int recursivePay) {
+	int pay = hour * 1226;
 
-	if (a < b) {
-		return a;
+	printf("Labor Time: %d(hour)\n\n", hour);
+	printf("%d(1226 * hour) %d(Recursive)\n\n", pay, recursivePay);
+
+	if (pay > recursivePay) {
+		printf("Legally > Recursive\n\n");
+	} else if (pay < recursivePay) {
+		printf("Legally < Recursive\n\n");
+	} else {
+		printf("Legally == Recursive\n\n");
 	}
 
-	return b;
+	printf("Extend 1 hour?\n");
+	printf("YES: 1,  NO: 2\n\n");
 
+	int choice = -1;
+
+	while (true) {
+		std::cin >> choice;
+
+		if (choice == 1) {
+			printf("Extend.\n\n");
+
+			break;
+
+		} else if (choice == 2) {
+			printf("End.\n\n");
+
+			break;
+
+		} else {
+			printf("Error: Please retry\n\n");
+		}
+	}
+
+	if (choice == 1) {
+		Labor(hour + 1, recursivePay * 2 - 50);
+	} else {
+		return;
+	}
 }
 
 int main() {
 	system("chcp 65001 > nul");
 
-	printf("1, 2 >> min: %d\n\n", Min(1, 2));
-
-	printf("2.0f, 5.0f >> min: %f\n\n", Min(2.0f, 5.0f));
-
-	printf("10.0, 16.0 >> min : %lf\n\n", Min(10.0, 16.0));
+	Labor(1, 100);
 
 	return 0;
 }
