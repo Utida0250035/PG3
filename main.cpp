@@ -1,93 +1,60 @@
-#include <stdlib.h>
-#include <time.h>
 
 #include <iostream>
 #include <string>
 #include <vector>
-#include <thread>
-#include <chrono>
 
-void ClearScreen() {
-	std::cout << "\033[2J\033[H" << std::flush;
-}
+void ClearScreen() { std::cout << "\033[2J\033[H" << std::flush; }
 
-void ShowResult(int roll, int userGuess) {
+void Labor(int hour, int recursiveHourlyPay, int recursivePay) {
+	int pay = hour * 1226;
 
-	printf("dice : %d\n", roll);
+	printf("Labor Time: %d(hour)\n\n", hour);
+	printf("Pay: %d(1226 * hour), %d(Recursive)\n\n", pay, recursivePay);
 
-	if (userGuess == roll % 2) {
-		printf("Correct!!\n\n");
+	if (pay > recursiveHourlyPay) {
+		printf("Legally > Recursive\n\n");
+	} else if (pay < recursiveHourlyPay) {
+		printf("Legally < Recursive\n\n");
 	} else {
-		printf("Wrong....\n\n");
-	}
-}
-
-void DelayReveal(void (*fn)(int, int), unsigned int delayMs, int roll, int userGuess) {
-
-	char letters[] = {
-		'/',
-		'-',
-		'|'
-	};
-
-	for (size_t i = 0; i < 9; ++i) {
-
-		std::printf("%c", letters[i % 3]);
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(delayMs / 9));
-
-		ClearScreen();
-
+		printf("Legally == Recursive\n\n");
 	}
 
-	fn(roll, userGuess);
-
-}
-
-void EvenOdd() {
-	srand(static_cast<unsigned int>(time(nullptr)));
-
-	int num = 0;
+	printf("Extend 1 hour?\n");
+	printf("YES: 1,  NO: 2\n\n");
 
 	int choice = -1;
 
-	int correct = -1;
-
 	while (true) {
-		num = rand() % 6 + 1;
+		std::cin >> choice;
 
-		printf("Even : 0, Odd: 1 (1d6)\n");
+		if (choice == 1) {
+			printf("Extend.\n\n");
 
-		scanf_s("%d", &choice);
-
-		DelayReveal(ShowResult, 3000, num, choice);
-
-		while (true) {
-			printf("One more play?\n");
-			printf("Yes: 0; No: 1\n");
-
-			scanf_s("%d", &choice);
-
-			if (choice == 0 || choice == 1) {
-				break;
-			} else {
-				printf("Error: Please retry.\n\n");
-			}
-		}
-
-		if (choice == 0) {
-			printf("One more.\n\n");
-		} else if (choice == 1) {
-			printf("End.\n\n");
 			break;
+
+		} else if (choice == 2) {
+			printf("End.\n\n");
+
+			break;
+
+		} else {
+			printf("Error: Please retry\n\n");
 		}
+	}
+
+	if (choice == 1) {
+		recursiveHourlyPay *= 2;
+		recursiveHourlyPay -= 50;
+		Labor(hour + 1, recursiveHourlyPay, recursivePay + recursiveHourlyPay);
+	} else {
+		return;
 	}
 }
 
 int main() {
 	system("chcp 65001 > nul");
 
-	EvenOdd();
+	Labor(1, 100, 100);
 
 	return 0;
 }
