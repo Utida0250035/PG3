@@ -1,55 +1,93 @@
+#include <stdlib.h>
+#include <time.h>
+
 #include <iostream>
 #include <string>
 #include <vector>
+#include <thread>
+#include <chrono>
 
-void Labor(int hour, int recursivePay) {
-	int pay = hour * 1226;
+void ClearScreen() {
+	std::cout << "\033[2J\033[H" << std::flush;
+}
 
-	printf("Labor Time: %d(hour)\n\n", hour);
-	printf("%d(1226 * hour) %d(Recursive)\n\n", pay, recursivePay);
+void ShowResult(int roll, int userGuess) {
 
-	if (pay > recursivePay) {
-		printf("Legally > Recursive\n\n");
-	} else if (pay < recursivePay) {
-		printf("Legally < Recursive\n\n");
+	printf("dice : %d\n", roll);
+
+	if (userGuess == roll % 2) {
+		printf("Correct!!\n\n");
 	} else {
-		printf("Legally == Recursive\n\n");
+		printf("Wrong....\n\n");
+	}
+}
+
+void DelayReveal(void (*fn)(int, int), unsigned int delayMs, int roll, int userGuess) {
+
+	char letters[] = {
+		'/',
+		'-',
+		'|'
+	};
+
+	for (size_t i = 0; i < 9; ++i) {
+
+		std::printf("%c", letters[i % 3]);
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(delayMs / 9));
+
+		ClearScreen();
+
 	}
 
-	printf("Extend 1 hour?\n");
-	printf("YES: 1,  NO: 2\n\n");
+	fn(roll, userGuess);
+
+}
+
+void EvenOdd() {
+	srand(static_cast<unsigned int>(time(nullptr)));
+
+	int num = 0;
 
 	int choice = -1;
 
+	int correct = -1;
+
 	while (true) {
-		std::cin >> choice;
+		num = rand() % 6 + 1;
 
-		if (choice == 1) {
-			printf("Extend.\n\n");
+		printf("Even : 0, Odd: 1 (1d6)\n");
 
-			break;
+		scanf_s("%d", &choice);
 
-		} else if (choice == 2) {
-			printf("End.\n\n");
+		DelayReveal(ShowResult, 3000, num, choice);
 
-			break;
+		while (true) {
+			printf("One more play?\n");
+			printf("Yes: 0; No: 1\n");
 
-		} else {
-			printf("Error: Please retry\n\n");
+			scanf_s("%d", &choice);
+
+			if (choice == 0 || choice == 1) {
+				break;
+			} else {
+				printf("Error: Please retry.\n\n");
+			}
 		}
-	}
 
-	if (choice == 1) {
-		Labor(hour + 1, recursivePay * 2 - 50);
-	} else {
-		return;
+		if (choice == 0) {
+			printf("One more.\n\n");
+		} else if (choice == 1) {
+			printf("End.\n\n");
+			break;
+		}
 	}
 }
 
 int main() {
 	system("chcp 65001 > nul");
 
-	Labor(1, 100);
+	EvenOdd();
 
 	return 0;
 }
