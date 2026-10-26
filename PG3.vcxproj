@@ -139,7 +139,15 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ClearScreen.cpp" />
+    <ClCompile Include="Labor.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ClearScreen.h" />
+    <ClInclude Include="EvenOdd.h" />
+    <ClInclude Include="Labor.h" />
+    <ClInclude Include="ToUtf8.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
