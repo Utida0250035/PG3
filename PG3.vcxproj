@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClearScreen.h" />
+    <ClInclude Include="Comparison.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EvenOdd.h" />
     <ClInclude Include="Labor.h" />
