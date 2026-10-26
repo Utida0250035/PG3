@@ -140,11 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ClearScreen.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Labor.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClearScreen.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="EvenOdd.h" />
     <ClInclude Include="Labor.h" />
     <ClInclude Include="ToUtf8.h" />

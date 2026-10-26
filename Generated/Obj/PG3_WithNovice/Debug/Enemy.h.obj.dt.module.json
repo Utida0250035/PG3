@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "C:\\Users\\ukout\\source\\repos\\PG3\\PG3_WithNovice\\..\\Generated\\Obj\\PG3_WithNovice\\Debug\\Enemy.obj",
+            "outputs": [
+                "C:\\Users\\ukout\\source\\repos\\PG3\\PG3_WithNovice\\..\\Generated\\Obj\\PG3_WithNovice\\Debug\\Enemy.h.obj.dt.module.json",
+                "C:\\Users\\ukout\\source\\repos\\PG3\\PG3_WithNovice\\..\\Generated\\Obj\\PG3_WithNovice\\Debug\\Enemy.h.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}
